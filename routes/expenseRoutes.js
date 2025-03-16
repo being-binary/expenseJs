@@ -1,7 +1,9 @@
 import express from "express";
-import { addExpense } from "../controllers/expenseControllers.js";
+import { addExpense, getExpense } from "../controllers/expenseControllers.js";
 const router = express.Router()
 
-router.post('/addexpense',addExpense)
+router.get('/getexpense', getExpense)
+router.post('/addexpense', addExpense)
+
 
 export default router

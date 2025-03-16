@@ -17,8 +17,8 @@ app.use(cors())
 
 
 //1st page
-app.post('/', (req, res)=>{
-	res.status(200).json({msg:`everything ok ${req.body.test}`, success:true})
+app.get('/', (req, res)=>{
+	res.status(200).json({msg:`everything ok`, success:true})
 })
 
 app.use('/expense', expenserouter)

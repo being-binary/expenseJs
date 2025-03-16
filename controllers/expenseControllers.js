@@ -1,6 +1,25 @@
 import expenseCollection from '../model/expenseCollection.js'
 import mongoose from 'mongoose'
 
+const getExpense = async(req, res)=>{
+	try {
+			// Getting all data from server
+			const expense = await expenseCollection.find({})
+			// Sending a JSON response with data
+			res.status(200).json({
+					msg:`succcess`,
+					success: true,
+					expense
+			})
+
+	} catch (error) {
+			//Sending error response with message
+			res.status(500).json({
+					msg:`${error.message}`,
+					success: false
+				})
+	}
+}
 
 const addExpense = async (req, res) => {
 	try {
@@ -42,4 +61,5 @@ const addExpense = async (req, res) => {
 
 export {
 	addExpense,
+	getExpense,
 }
